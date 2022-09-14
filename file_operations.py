@@ -72,7 +72,7 @@ def remove_data(file_name, content_to_remove):
                         lines.remove(row)
                         print("Content was removed.")
                         return lines
-                        
+
         print("Content cannot be removed. The specified content does not exist.")
 
 
