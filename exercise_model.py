@@ -7,11 +7,11 @@ class Exercise:
         self.exercise_file_name = exercise_file_name
 
     def create_new_exercise(self, list_of_new_exercises):
-        file_operations.file_existence_checker(self.exercise_file_name, "Exercises", "Notes")
+        file_operations.file_existence_checker(self.exercise_file_name, "Number", "Exercises", "Notes")
         file_operations.data_writer_without_duplicity(self.exercise_file_name, list_of_new_exercises)
     
     def list_exercises(self):
-        file_operations.file_existence_checker(self.exercise_file_name, "Exercises", "Notes")
+        file_operations.file_existence_checker(self.exercise_file_name, "Number","Exercises", "Notes")
         content = file_operations.get_file_content(self.exercise_file_name)
         return content
 
@@ -29,18 +29,18 @@ class TrainingRecords:
         self.records_file_name = records_file_name
 
     def create_new_training_record(self, exercise_file_name, list_of_new_records):
-        exercise_name = list_of_new_records[0]
+        exercise_name = list_of_new_records[1]
         
         exercise = Exercise(exercise_file_name)
         if len(exercise.find_exercise(exercise_name)) == 0:
             print("Training record cannot be added. The exercise does not exist, enter the exercise in to the exercise list.")
             return False
 
-        file_operations.file_existence_checker(self.records_file_name, "Exercises", "Notes", "Date", "Series", "Repetitions")
+        file_operations.file_existence_checker(self.records_file_name, "Number","Exercises", "Notes", "Date", "Series", "Repetitions")
         file_operations.data_writer(self.records_file_name, list_of_new_records)
     
     def list_training_records(self):
-        file_operations.file_existence_checker(self.records_file_name, "Exercises", "Notes", "Date", "Series", "Repetitions")
+        file_operations.file_existence_checker(self.records_file_name, "Number","Exercises", "Notes", "Date", "Series", "Repetitions")
         content = file_operations.get_file_content(self.records_file_name)
         return content
 

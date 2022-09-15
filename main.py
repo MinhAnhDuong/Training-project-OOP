@@ -4,8 +4,10 @@ def main():
     exercise_file_name = ""
     records_file_name = ""
 
-    exercise_file_name = input("Enter exercise file name: ").lower()
-    records_file_name = input("Enter training record file name: ").lower()
+    #exercise_file_name = input("Enter exercise file name: ").lower()
+    #records_file_name = input("Enter training record file name: ").lower()
+    exercise_file_name = "list_of_exercises.csv"
+    records_file_name = "list_of_training_records.csv"
 
     main_menu = '''
     1. Exercises
@@ -98,6 +100,7 @@ def main():
                     new_repetition = input("Enter number of repetitions: ")
 
                     new_list_training_record.extend([new_record, new_note, new_date, new_series, new_repetition])
+
 
                     if training_record.create_new_training_record(exercise_file_name, new_list_training_record) == False:
                         continue

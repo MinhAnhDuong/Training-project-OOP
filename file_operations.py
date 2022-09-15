@@ -22,9 +22,11 @@ def file_existence_checker(file_name, column_name_1, column_name_2, column_name_
 def data_writer(file_name, add_new_content):
 
     try:
+
         with open(file_name, mode="a+") as csv_file:
             csv_writer = writer(csv_file)
             csv_writer.writerow(add_new_content)
+
         print("New content was added.")
         return
 
@@ -112,6 +114,23 @@ def find_data(file_name, find_content):
     except Exception:
         print("No content has been added yet.")
         return Exception
+
+def record_counter(file_name):
+    try:
+        with open(file_name,"r") as csv_file: 
+	        content = csv_file.readlines() 
+
+        lastRow = content[-1] 
+        first_col = lastRow[0]
+        int_first_col = int(first_col)
+
+        last_record_num = int_first_col + 1
+
+        return last_record_num
+        
+    except Exception:
+        return Exception
+
 
 
 
