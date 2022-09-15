@@ -5,14 +5,14 @@ import io
 
 
 
-def file_existence_checker(file_name, column_name_1, column_name_2, column_name_3 = None, column_name_4 = None, column_name_5 = None):
+def file_existence_checker(file_name, column_name_1, column_name_2, column_name_3, column_name_4 = None, column_name_5 = None, column_name_6 = None):
     try:
         with open(file_name) as csv_file:
             return
 
     except Exception:
         with open(file_name, mode="w") as csv_file:
-            fieldnames = [column_name_1, column_name_2, column_name_3, column_name_4, column_name_5]
+            fieldnames = [column_name_1, column_name_2, column_name_3, column_name_4, column_name_5, column_name_6]
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             writer.writeheader()
         print("File has not been created yet. New file was created")
@@ -58,8 +58,9 @@ def get_file_content(file_name):
     return content
 
 def remove_data(file_name, content_to_remove):
-
+    row = []
     lines = list()
+    lines_content = []
 
     try:
         with open(file_name, 'r') as csv_file:
@@ -71,15 +72,20 @@ def remove_data(file_name, content_to_remove):
                 for field in row:
                     if field == content_to_remove:
                         lines.remove(row)
+                        lines_content.append(row)
                         print("Content was removed.")
 
+                        with open(file_name, 'w') as csv_file:
+                            writer = csv.writer(csv_file)
+                            writer.writerows(lines)
+                        return lines
 
-        print("Content cannot be removed. The specified content does not exist.")
+                    else:
+                        row = []
 
-        with open(file_name, 'w') as csv_file:
-            writer = csv.writer(csv_file)
-            writer.writerows(lines)
-            return lines   
+            if len(lines_content) == 0:
+                print("Content cannot be found.")
+            return lines_content  
                       
     except Exception:
         print("No content has been added yet.")

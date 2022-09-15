@@ -4,8 +4,8 @@ def main():
     exercise_file_name = ""
     records_file_name = ""
 
-    exercise_file_name = input("Enter exercise file name: ")
-    records_file_name = input("Enter training record file name: ")
+    exercise_file_name = input("Enter exercise file name: ").lower()
+    records_file_name = input("Enter training record file name: ").lower()
 
     main_menu = '''
     1. Exercises
