@@ -2,7 +2,7 @@ import os
 import csv
 from csv import writer
 import io
-from turtle import Turtle
+
 
 
 def file_existence_checker(file_name, column_name_1, column_name_2, column_name_3 = None, column_name_4 = None, column_name_5 = None):
@@ -10,12 +10,13 @@ def file_existence_checker(file_name, column_name_1, column_name_2, column_name_
         with open(file_name) as csv_file:
             return
 
-    except FileNotFoundError:
+    except Exception:
         with open(file_name, mode="w") as csv_file:
             fieldnames = [column_name_1, column_name_2, column_name_3, column_name_4, column_name_5]
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             writer.writeheader()
         print("File has not been created yet. New file was created")
+        return Exception
 
 
 def data_writer(file_name, add_new_content):
@@ -27,9 +28,9 @@ def data_writer(file_name, add_new_content):
         print("New content was added.")
         return
 
-    except:
+    except Exception:
         print("Content could not be added.")
-        return
+        return Exception
 
 def data_writer_without_duplicity(file_name, add_new_content):
 
@@ -47,9 +48,9 @@ def data_writer_without_duplicity(file_name, add_new_content):
             print("New content was added.")
             return
 
-        except:
+        except Exception:
             print("Content could not be added.")
-            return
+            return Exception
 
 def get_file_content(file_name):
     with io.open(file_name, mode="r", newline='', encoding='utf-8') as csv_file:
@@ -71,38 +72,40 @@ def remove_data(file_name, content_to_remove):
                     if field == content_to_remove:
                         lines.remove(row)
                         print("Content was removed.")
-                        return lines
+
 
         print("Content cannot be removed. The specified content does not exist.")
-
 
         with open(file_name, 'w') as csv_file:
             writer = csv.writer(csv_file)
             writer.writerows(lines)
-            return   
+            return lines   
                       
-    except:
+    except Exception:
         print("No content has been added yet.")
-        return
+        return Exception
 
 def find_data(file_name, find_content):
     row = []
+    found_content = []
 
     try:
         with io.open(file_name, mode="r", newline='', encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file)
 
             for row in reader:
-                if row[0] == find_content:
-                    return row
+                if find_content in row:
+                    found_content.append(row)
                 else:
                     row = []
-                    
-            print("Content cannot be found.")
-            return row
+            
+            if len(found_content) == 0:
+                print("Content cannot be found.")
+            return found_content
 
-    except FileNotFoundError:
+    except Exception:
         print("No content has been added yet.")
+        return Exception
 
 
 

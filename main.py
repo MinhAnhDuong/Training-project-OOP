@@ -68,8 +68,8 @@ def main():
 
                 elif user_choice == "4":
                     user_find_exercise = input("Enter exercise: ")
-                    exercise = exercise.find_exercise(user_find_exercise)
-                    print(exercise)
+                    exercise_content = exercise.find_exercise(user_find_exercise)
+                    print(exercise_content)
                 
                 elif user_choice == "5":
                     break
