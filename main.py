@@ -95,6 +95,7 @@ def main():
                     new_list_training_record = []
 
                     new_number = training_record.record_number()
+                    
                     new_record = input("Enter exercise: ")
                     new_note = input("Enter note: ")
                     new_date = input("Enter date: ")

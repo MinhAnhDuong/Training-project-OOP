@@ -127,8 +127,9 @@ def record_counter(file_name):
 
         return last_record_num
 
-    except Exception:
-        return Exception
+    except ValueError:
+        first_number = 1
+        return first_number
 
 
 

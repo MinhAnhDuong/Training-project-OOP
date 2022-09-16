@@ -49,6 +49,7 @@ class TrainingRecords:
     def find_training_record(self, training_record):
         row = file_operations.find_data(self.records_file_name, training_record)
         return row
+
     def record_number(self):
         number = file_operations.record_counter(self.records_file_name)
         return number
@@ -72,8 +73,8 @@ class TrainingRecords:
 #
 ##exercise = Exercise("list_of_exercises.csv")
 ##exer = Exercise("list_of_exercises.csv")
-record = TrainingRecords("list_of_training_records.csv")
-record.record_number()
+#record = TrainingRecords("list_of_training_records.csv")
+#record.record_number()
 
 
 
