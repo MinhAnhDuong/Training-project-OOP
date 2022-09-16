@@ -19,7 +19,6 @@ class Exercise:
         file_operations.remove_data(self.exercise_file_name, exercise_to_remove)
     
     def find_exercise(self, exercise):
-    #    row = []
         row = file_operations.find_data(self.exercise_file_name, exercise)
         return row
 
@@ -50,6 +49,11 @@ class TrainingRecords:
     def find_training_record(self, training_record):
         row = file_operations.find_data(self.records_file_name, training_record)
         return row
+    def record_number(self):
+        number = file_operations.record_counter(self.records_file_name)
+        print(number)
+        return number
+
 
 
     
@@ -69,8 +73,8 @@ class TrainingRecords:
 #
 ##exercise = Exercise("list_of_exercises.csv")
 ##exer = Exercise("list_of_exercises.csv")
-#record = TrainingRecords("list_of_training_records.csv")
-#record.create_new_training_record("list_of_exercises.csv", list_of_new_records)
+record = TrainingRecords("list_of_training_records.csv")
+record.record_number()
 
 
 

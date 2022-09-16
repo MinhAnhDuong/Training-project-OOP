@@ -91,6 +91,7 @@ def main():
                     print(content)
 
                 elif user_choice == "2":
+
                     new_list_training_record = []
 
                     new_record = input("Enter exercise: ")

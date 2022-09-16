@@ -22,7 +22,6 @@ def file_existence_checker(file_name, column_name_1, column_name_2, column_name_
 def data_writer(file_name, add_new_content):
 
     try:
-
         with open(file_name, mode="a+") as csv_file:
             csv_writer = writer(csv_file)
             csv_writer.writerow(add_new_content)
@@ -127,7 +126,7 @@ def record_counter(file_name):
         last_record_num = int_first_col + 1
 
         return last_record_num
-        
+
     except Exception:
         return Exception
 
