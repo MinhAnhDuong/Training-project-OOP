@@ -51,7 +51,6 @@ class TrainingRecords:
         return row
     def record_number(self):
         number = file_operations.record_counter(self.records_file_name)
-        print(number)
         return number
 
 

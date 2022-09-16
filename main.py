@@ -94,20 +94,25 @@ def main():
 
                     new_list_training_record = []
 
+                    new_number = training_record.record_number()
                     new_record = input("Enter exercise: ")
                     new_note = input("Enter note: ")
                     new_date = input("Enter date: ")
                     new_series = input("Enter number of series: ")
                     new_repetition = input("Enter number of repetitions: ")
 
-                    new_list_training_record.extend([new_record, new_note, new_date, new_series, new_repetition])
+                    new_list_training_record.extend([new_number, new_record, new_note, new_date, new_series, new_repetition])
 
 
                     if training_record.create_new_training_record(exercise_file_name, new_list_training_record) == False:
                         continue
                     
                 elif user_choice == "3":
-                    remove_training_record = input("Enter training record: ")
+                    content = training_record.list_training_records()
+                    print(content) 
+
+                    remove_training_record = input("Enter the training record number to remove: ")
+
                     training_record.remove_training_record(remove_training_record)
 
                 elif user_choice == "4":

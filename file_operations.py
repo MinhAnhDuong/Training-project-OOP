@@ -58,7 +58,7 @@ def get_file_content(file_name):
         content = csv_file.read()
     return content
 
-def remove_data(file_name, content_to_remove):
+def remove_data(file_name, number_to_remove):
     row = []
     lines = list()
     lines_content = []
@@ -71,7 +71,7 @@ def remove_data(file_name, content_to_remove):
                 lines.append(row)
 
                 for field in row:
-                    if field == content_to_remove:
+                    if field == number_to_remove:
                         lines.remove(row)
                         lines_content.append(row)
                         print("Content was removed.")
