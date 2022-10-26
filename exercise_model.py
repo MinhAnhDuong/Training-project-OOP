@@ -1,5 +1,4 @@
 import file_operations
-import io
 
 
 class Exercise:
@@ -53,40 +52,3 @@ class TrainingRecords:
     def record_number(self):
         number = file_operations.record_counter(self.records_file_name)
         return number
-
-
-
-    
-#---------------------------------------------------------------------------------------------------
-##           create
-##list_of_new_exercises = ["beh", "drepPoznamkaZkouska"]
-#list_of_new_records = ["beh","drepPoznamkaZkouska222", "15.7.2021", 5, 10]
-#
-##           remove
-##exercise_to_remove = "pritahy"
-##records_to_remove = "shyby"
-#
-##           find
-#exercise = "klik"
-##training_record = "beh"
-##---------------------------------------------------------------------------------------------------
-#
-##exercise = Exercise("list_of_exercises.csv")
-##exer = Exercise("list_of_exercises.csv")
-#record = TrainingRecords("list_of_training_records.csv")
-#record.record_number()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
